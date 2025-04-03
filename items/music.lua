@@ -2,6 +2,12 @@ local colors = require("colors")
 local settings = require("settings")
 local icons = require("icons")
 
+-- Add a padding spacer to separate music from RAM widget
+sbar.add("item", "music.padding.left", { 
+  position = "right",
+  width = settings.group_paddings * 3 -- Increase padding between RAM and Music
+})
+
 -- Define apps to show in the widget
 local whitelist = { 
   ["Music"] = true
@@ -14,10 +20,10 @@ local media_icon = sbar.add("item", "music.icon", {
     string = "􀑪", -- Music symbol for not playing
     font = { size = 16.0 },
     color = colors.grey,
-    padding_right = 0, -- Removed padding between icon and title
+    padding_right = 0,
   },
-  padding_right = 10, -- Removed padding
-  padding_left = 0,
+  padding_right = 0,
+  padding_left = 10, -- Add left padding to the music icon
 })
 
 local media_title = sbar.add("item", "music.title", {
@@ -36,7 +42,7 @@ local media_title = sbar.add("item", "music.title", {
 })
 
 -- Calculate popup width (20% wider than before)
-local popup_width = 500
+local popup_width = 150
 
 -- Simple bracket with icon and title
 local music_bracket = sbar.add("bracket", "music.bracket", { 

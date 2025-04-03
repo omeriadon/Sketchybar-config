@@ -45,7 +45,12 @@ battery:subscribe({"routine", "power_source_change", "system_woke"}, function()
     local charging, _, _ = batt_info:find("AC Power")
 
     if charging then
-      icon = icons.battery.charging
+      if found and charge >= 90 then
+        icon = "􀢋" -- Special bolt icon for fully charged and plugged in
+        color = colors.blue
+      else
+        icon = icons.battery.charging
+      end
     else
       if found and charge > 80 then
         icon = icons.battery._100
@@ -70,7 +75,7 @@ battery:subscribe({"routine", "power_source_change", "system_woke"}, function()
     battery:set({
       icon = {
         string = icon,
-        color = color
+        color = color,
       },
       label = { string = lead .. label },
     })
