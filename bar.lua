@@ -5,9 +5,9 @@ sbar.bar({
   height = 41,
   padding_right = 3,
   padding_left = 3,
-  blur_radius = 50,
+  blur_radius = 30,
 
-  color = colors.trueblack,
+
  
 
 })

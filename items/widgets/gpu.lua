@@ -96,7 +96,7 @@ gpu:subscribe("gpu_update", function(env)
     
     gpu:set({
       graph = { color = gpu_color },
-      label = { string = string.format("%d%%", gpu_usage) }
+      label = "gpu " .. gpu_usage .. "%",
     })
   end)
 end)
